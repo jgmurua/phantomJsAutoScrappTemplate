@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  phantomjs:
+    build:
+      context: .
+    ports:
+      - "90:80"
+    volumes:
+      - ./imagen:/imagen
+    command: bash -c "nginx && phantomjs --ignore-ssl-errors=yes /script/inyector.js && sleep 60000"
